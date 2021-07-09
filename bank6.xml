@@ -1,0 +1,54 @@
+<Schema name="New Schema1">
+  <Cube name="mycube" visible="true" cache="true" enabled="true">
+    <Table name="transactions">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="user_id" highCardinality="false" name="user">
+      <Hierarchy name="user" visible="true" hasAll="true" primaryKey="user_id" primaryKeyTable="user">
+        <Table name="user">
+        </Table>
+        <Level name="name" visible="true" table="user" column="first_name" ordinalColumn="first_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_pr" highCardinality="false" name="primaryaccount">
+      <Hierarchy name="primaryaccount" visible="true" hasAll="true" primaryKey="id_pr" primaryKeyTable="primary_account">
+        <Table name="primary_account">
+        </Table>
+        <Level name="id" visible="true" table="primary_account" column="id_pr" ordinalColumn="id_pr" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="account_balance" visible="true" table="primary_account" column="account_balance" ordinalColumn="account_balance" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_t" highCardinality="false" name="primarytransaction">
+      <Hierarchy name="primarytransaction" visible="true" hasAll="true" primaryKey="id_t" primaryKeyTable="primary_transaction">
+        <Table name="primary_transaction">
+        </Table>
+        <Level name="amount" visible="true" table="primary_transaction" column="amount" ordinalColumn="amount" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="available_balance" visible="true" table="primary_transaction" column="available_balance" ordinalColumn="available_balance" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="id_P" highCardinality="false" name="periode">
+      <Hierarchy name="periode" visible="true" hasAll="true" primaryKey="id_P" primaryKeyTable="periode">
+        <Table name="periode">
+        </Table>
+        <Level name="annee" visible="true" table="periode" column="annee" nameColumn="annee" type="Numeric" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="trimestre" visible="true" table="periode" column="trimestre" nameColumn="trimestre" type="String" uniqueMembers="true" levelType="TimeQuarters" hideMemberIf="Never">
+        </Level>
+        <Level name="mois" visible="true" table="periode" column="mois" nameColumn="mois" type="Numeric" uniqueMembers="true" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+                <Level name="jour" visible="true" table="periode" column="jour" nameColumn="jour" type="Numeric" uniqueMembers="true" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="counttransactions" column="count" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="chiffredaffaire" column="chiffre_affaire" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Transamount" column="amount" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,145 @@
+
+<FORM action="https://formcarry.com/s/_Zog96NG229" method="POST" accept-charset="UTF-8">
+  <TABLE BORDER="1">
+    <TR>
+      <TD>Your name</TD>
+      <TD>
+        <INPUT TYPE="TEXT" NAME="name"  VALUE="sdqsd" SIZE="20">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Your E-mail address</TD>
+      <TD><INPUT TYPE="TEXT" NAME="email"  VALUE="Submit"   SIZE="25"></TD>
+    </TR>
+  </TABLE>
+  <P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="B1"></P>
+  </FORM> 
+
+
+
+
+
+
+
+
+<div  > 
+  <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
+  <div class="container" id="content" #content>  
+<table id="userTable" class="table table-dark" cellspacing="0" width="100%"  >
+	<thead>
+		<tr>
+			<th>User Name</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Primary Account</th>
+			<th>Savings Account</th>
+ 
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of userList">
+			<td>{{user.username}}</td>
+			<td>{{user.firstName}}</td>
+			<td>{{user.lastName}}</td>
+			<td>{{user.email}}</td>
+			<td>{{user.phone}}</td>
+			<td><a (click)="onSelectPrimary(user.username)" style="cursor: pointer;">{{user.primaryAccount.accountNumber}}</a></td>
+			<td><a (click)="onSelectSavings(user.username)" style="cursor: pointer;">{{user.savingsAccount.accountNumber}}</a></td>
+	
+
+<!-- 			<td><a (click)="onSelectPrimary(user.username)" style="cursor: pointer;">{{user.primaryAccount.accountBalance}}</a></td>
+			<td><a (click)="onSelectSavings(user.username)" style="cursor: pointer;">{{user.savingsAccount.accountBalance}}</a></td>
+			<td>{{user.enabled}}</td>
+			<td [hidden]="user.enabled"><a (click)="enableUser(user.username)" style="cursor: pointer;">Enable</a></td>
+			<td [hidden]="!user.enabled"><a (click)="disableUser(user.username)" style="cursor: pointer;">Disable</a></td> -->
+		</tr>
+	</tbody>
+</table>   
+</div>
+</div>
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType">
+  </canvas>
+</div>
+
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData2" 
+    [labels]="pieChartLabels2" 
+    [chartType]="pieChartType2"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins2"
+    [legend]="pieChartLegend2">
+  </canvas>
+</div>
+
+<div class="chart-wrapper">
+    <canvas baseChart
+    [datasets]="radarChartData"
+    [options]="radarChartOptions"
+    [labels]="radarChartLabels"
+    [chartType]="radarChartType">
+  </canvas>
+</div>
+
+<div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+
+  
+
+
+ 
+<div class="card">
+  <div class="card-body">
+      <div class="d-md-flex align-items-center">
+          <h4 class="card-title">Revenue Statics</h4>
+          <div class="ml-auto">
+              <ul class="list-inline">
+                  <li class="list-inline-item">
+                      <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-info"></i>Sin(x)</h6>
+                  </li>
+                  <li class="list-inline-item">
+                      <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-success"></i>Cos(x)</h6>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div style="height:300px;" class="m-t-20">
+          <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+              [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+              [chartType]="lineChartType">
+          </canvas>
+      </div>
+  </div>
+</div>
+
+
+ 
+
+ 
